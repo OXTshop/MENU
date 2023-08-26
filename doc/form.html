@@ -24,6 +24,10 @@
     <label for="END_1Input">Digite o ESTADO:</label>
     <input type="text" id="END_1Input">
     <br>
+    
+    <label for="CI_1Input">Digite o CIDADE:</label>
+    <input type="text" id="CI_1Input">
+    <br>
 
     <label for="CE_1Input">Digite o CEP:</label>
     <input type="text" id="CE_1Input">
@@ -39,7 +43,17 @@
             const enderecoValue = document.getElementById("enderecoInput").value;
             const NAME_1Value = document.getElementById("NAME_1Input").value;
             const END_1Value = document.getElementById("END_1Input").value;
-            const CE_1Value = document.getElementById("CE_1Input").value;
+            const CE_1Value = document.getElementById("CE_1Input").value; 
+            const CI_1Value = document.getElementById("CI_1Input").value;
+
+            const today = new Date();
+            const day = today.getDate();
+            const year = today.getFullYear();
+            const monthNames = [
+                "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+                "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
+            ];
+            const month = monthNames[today.getMonth()];
 
             fetch("conclusão.html")
                 .then(response => response.text())
@@ -49,7 +63,12 @@
                         .replace(/END_1/g, enderecoValue)
                         .replace(/CE_1/g, CE_1Value)
                         .replace(/ES_1/g, END_1Value)
-                        .replace(/NAME_1/g, NAME_1Value);
+                        .replace(/NAME_1/g, NAME_1Value)
+                        .replace(/NAME_2/g, NAME_1Value)
+                        .replace(/CI_1/g, CI_1Value)
+                        .replace(/DT_1/g, day)
+                        .replace(/MT_1/g, month)
+                        .replace(/AT_1/g, year);
 
                     // Cria um blob com o conteúdo modificado
                     const blob = new Blob([htmlComSubstituicoes], {
