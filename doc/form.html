@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="icon" href="Aspose.Words.afd35617-162f-418a-8399-4fa1a785bfc9.001.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <title>Substituir Palavras-Chave</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <label for="NAME_1Input">Digite o NOME:</label>
+    <input type="text" id="NAME_1Input">
+    <br>
+
+    <label for="cpInput">Digite o CPF:</label>
+    <input type="text" id="cpInput">
+    <br>
+
+    <label for="enderecoInput">Digite o ENDEREÇO:</label>
+    <input type="text" id="enderecoInput">
+    <br>
+
+    <label for="END_1Input">Digite o ESTADO:</label>
+    <input type="text" id="END_1Input">
+    <br>
+
+    <label for="CE_1Input">Digite o CEP:</label>
+    <input type="text" id="CE_1Input">
+    <br>
+
+    <button onclick="substituirPalavrasChave()">Substituir Palavras-Chave</button>
+    <br>
+    <div id="guiContainer"></div>
+
+    <script>
+        function substituirPalavrasChave() {
+            const cpValue = document.getElementById("cpInput").value;
+            const enderecoValue = document.getElementById("enderecoInput").value;
+            const NAME_1Value = document.getElementById("NAME_1Input").value;
+            const END_1Value = document.getElementById("END_1Input").value;
+            const CE_1Value = document.getElementById("CE_1Input").value;
+
+            fetch("conclusão.html")
+                .then(response => response.text())
+                .then(html => {
+                    const htmlComSubstituicoes = html
+                        .replace(/CP_1/g, cpValue)
+                        .replace(/END_1/g, enderecoValue)
+                        .replace(/CE_1/g, CE_1Value)
+                        .replace(/ES_1/g, END_1Value)
+                        .replace(/NAME_1/g, NAME_1Value);
+
+                    // Cria um blob com o conteúdo modificado
+                    const blob = new Blob([htmlComSubstituicoes], {
+                        type: "text/html"
+                    });
+
+                    // Cria uma URL temporária para o blob
+                    const url = URL.createObjectURL(blob);
+
+                    // Cria um link de download
+                    const downloadLink = document.createElement("a");
+                    downloadLink.href = url;
+                    downloadLink.download = "Doc_PRONTO.html";
+                    downloadLink.textContent = "Baixar Arquivo Modificado";
+
+                    // Adiciona o link à página
+                    const guiContainer = document.getElementById("guiContainer");
+                    guiContainer.innerHTML = "";
+                    guiContainer.appendChild(downloadLink);
+                })
+                .catch(error => {
+                    console.error("Erro ao carregar o arquivo Gui.html:", error);
+                });
+        }
+    </script>
+</body>
+
+</html>

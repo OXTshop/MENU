@@ -1,0 +1,77 @@
+body, h1, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos para o cabeçalho */
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+nav li {
+    margin: 0 1rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Estilos para o rodapé */
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #eee;
+}
+
+/* Novos estilos para a grade de links */
+.link-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    list-style: none;
+}
+
+.link-grid li {
+    width: 150px; /* Ajuste conforme necessário */
+    height: 150px; /* Ajuste conforme necessário */
+    margin: 1rem;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer; /* Adicionado cursor de ponteiro */
+}
+
+.link-grid li:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.link-grid a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    pointer-events: none; /* Impede o clique direto no link */
+}
+
+.link-grid li:hover a {
+    pointer-events: auto; /* Permite o clique quando o quadradinho é tocado */
+}
