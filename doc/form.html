@@ -14,8 +14,7 @@
         <input type="text" id="NAME_1Input">
         <br>
 
-        <label for="cpInput"  pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" \>Digite o CPF:</label>
-       
+        <label for="cpInput">Digite o CPF:</label>
         <input type="text" id="cpInput">
         <br>
 
@@ -34,6 +33,19 @@
         <label for="CE_1Input">Digite o CEP:</label>
         <input type="text" id="CE_1Input">
         <br>
+
+        <label for="LIST_1Input">Painéis (quantidade e tipo):</label>
+        <input type="text" id="LIST_1Input">
+        <br>
+
+        <label for="LIST_2Input">Inversor (quantidade e tipo):</label>
+        <input type="text" id="LIST_2Input">
+        <br>
+
+        <label for="METRO_1Input">CABO SOLAR (METRO):</label>
+        <input type="text" id="METRO_1Input">
+        <br>
+
     </form>
     <button onclick="substituirPalavrasChave()">Substituir Palavras-Chave</button>
     <br>
@@ -47,6 +59,9 @@
             const END_1Value = document.getElementById("END_1Input").value;
             const CE_1Value = document.getElementById("CE_1Input").value; 
             const CI_1Value = document.getElementById("CI_1Input").value;
+            const LIST_1Value = document.getElementById("LIST_1Input").value;
+            const LIST_2Value = document.getElementById("LIST_2Input").value;
+            const METRO_1Value = document.getElementById("METRO_1Input").value;
 
             const today = new Date();
             const day = today.getDate();
@@ -70,7 +85,10 @@
                         .replace(/CI_1/g, CI_1Value)
                         .replace(/DT_1/g, day)
                         .replace(/MT_1/g, month)
-                        .replace(/AT_1/g, year);
+                        .replace(/AT_1/g, year)
+                        .replace(/LIST_1/g, LIST_1Value)
+                        .replace(/LIST_2/g, LIST_2Value)
+                        .replace(/METRO_1/g, METRO_1Value);
 
                     // Cria um blob com o conteúdo modificado
                     const blob = new Blob([htmlComSubstituicoes], {
@@ -83,7 +101,7 @@
                     // Cria um link de download
                     const downloadLink = document.createElement("a");
                     downloadLink.href = url;
-                    downloadLink.download = "Doc_PRONTO.html";
+                    downloadLink.download = NAME_1Value,".html";
                     downloadLink.textContent = "Baixar Arquivo Modificado";
 
                     // Adiciona o link à página
