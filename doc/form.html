@@ -2,37 +2,39 @@
 <html>
 
 <head>
-    <link rel="icon" href="Aspose.Words.afd35617-162f-418a-8399-4fa1a785bfc9.001.png" type="image/x-icon">
+    <link href="gb.png" type="image/png" />
     <meta charset="UTF-8">
     <title>Substituir Palavras-Chave</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <label for="NAME_1Input">Digite o NOME:</label>
-    <input type="text" id="NAME_1Input">
-    <br>
+    <form>
+        <label for="NAME_1Input">Digite o NOME:</label>
+        <input type="text" id="NAME_1Input">
+        <br>
 
-    <label for="cpInput">Digite o CPF:</label>
-    <input type="text" id="cpInput">
-    <br>
+        <label for="cpInput"  pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" \>Digite o CPF:</label>
+       
+        <input type="text" id="cpInput">
+        <br>
 
-    <label for="enderecoInput">Digite o ENDEREÇO:</label>
-    <input type="text" id="enderecoInput">
-    <br>
+        <label for="enderecoInput">Digite o ENDEREÇO:</label>
+        <input type="text" id="enderecoInput">
+        <br>
 
-    <label for="END_1Input">Digite o ESTADO:</label>
-    <input type="text" id="END_1Input">
-    <br>
-    
-    <label for="CI_1Input">Digite o CIDADE:</label>
-    <input type="text" id="CI_1Input">
-    <br>
+        <label for="END_1Input">Digite o ESTADO:</label>
+        <input type="text" id="END_1Input">
+        <br>
+        
+        <label for="CI_1Input">Digite o CIDADE:</label>
+        <input type="text" id="CI_1Input">
+        <br>
 
-    <label for="CE_1Input">Digite o CEP:</label>
-    <input type="text" id="CE_1Input">
-    <br>
-
+        <label for="CE_1Input">Digite o CEP:</label>
+        <input type="text" id="CE_1Input">
+        <br>
+    </form>
     <button onclick="substituirPalavrasChave()">Substituir Palavras-Chave</button>
     <br>
     <div id="guiContainer"></div>
