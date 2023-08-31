@@ -14,12 +14,18 @@
     </header>
     <nav>
         <ul class="link-grid">
-            <li><a href="doc/form.html">FORMULARIO</a></li>
-            <li><a href="">DEV...</a></li>
-            <li><a href="">DEV...</a></li>
-            <li><a href="">DEV...</a></li>
+            <li onclick="abreLink();"><a href="#">FORMULARIO</a></li>
+            <li onclick="abreLink(2);"><a href="">DEV...</a></li>
+            <li onclick="abreLink(3);"><a href="">DEV...</a></li>
+            <li onclick="abreLink(4);"><a href="">DEV...</a></li>
         </ul>
     </nav>
+    <script>
+        function abreLink() {
+            window.open('doc/form.html');
+        }
+    </script>
+
     <footer>
         <p>&copy; 2023 OXT GUILHERME</p>
     </footer>
