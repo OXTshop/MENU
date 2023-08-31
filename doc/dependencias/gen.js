@@ -1,16 +1,22 @@
 function substituirPalavrasChave() {
-    const cpValue = document.getElementById("cpInput").value;
-    const enderecoValue = document.getElementById("rua").value;
-    const NAME_1Value = document.getElementById("NAME_1Input").value;
-    const END_1Value = document.getElementById("uf").value;
-    const CE_1Value = document.getElementById("CE_1Input").value;
-    const CI_1Value = document.getElementById("cidade").value;
-    const LIST_1Value = document.getElementById("LIST_1Input").value;
-    const LIST_2Value = document.getElementById("LIST_2Input").value;
-    const METRO_1Value = document.getElementById("METRO_1Input").value;
-    const BAR_Value = document.getElementById("bairro").value;
-
-    const today = new Date();
+    const cpValue = document.getElementById("cpInput").value; // CPF
+    const enderecoValue = document.getElementById("rua").value; // Rua
+    const NAME_1Value = document.getElementById("NAME_1Input").value; // Nome
+    const END_1Value = document.getElementById("uf").value; // Estado
+    const CE_1Value = document.getElementById("CE_1Input").value; // CEP
+    const CI_1Value = document.getElementById("cidade").value; // Cidade
+    const LIST_1Value = document.getElementById("LIST_1Input").value; // lista 1
+    const LIST_2Value = document.getElementById("LIST_2Input").value; // lista 2
+    const METRO_1Value = document.getElementById("METRO_1Input").value; // Cabo M
+    const BAR_Value = document.getElementById("bairro").value; //bairro
+    
+    const VALOR_1Value = document.getElementById("valor").value; // Valor 
+    const PAGAMENTO_1Value = document.getElementById("pagamento").value; // Pagamento
+    const CNPJ_1Value = document.getElementById("cnpj").value; // CNPJ da empresa
+    const Potencia_1Value = document.getElementById("potencia").value; // Potência
+    const Empresa_1Value = document.getElementById("empresa").value; // Empresa
+    
+    const today = new Date();// DATA E FORMATAÇÃO
     const day = today.getDate();
     const year = today.getFullYear();
     const monthNames = [
@@ -19,7 +25,7 @@ function substituirPalavrasChave() {
     ];
     const month = monthNames[today.getMonth()];
 
-    fetch("conclusão.html")
+    fetch("dependencias/conclusão.html")
         .then(response => response.text())
         .then(html => {
             const htmlComSubstituicoes = html
@@ -35,7 +41,12 @@ function substituirPalavrasChave() {
                 .replace(/AT_1/g, year)
                 .replace(/LIST_1/g, LIST_1Value)
                 .replace(/LIST_2/g, LIST_2Value)
-                .replace(/METRO_1/g, METRO_1Value);
+                .replace(/METRO_1/g, METRO_1Value + "M")
+                .replace(/VALOR_1/g, "R$" + VALOR_1Value)
+                .replace(/PAGAMENTO_1/g, PAGAMENTO_1Value)
+                .replace(/CNPJ_1/g, CNPJ_1Value)
+                .replace(/Potencia_1/g, Potencia_1Value + "Kwp")
+                .replace(/Empresa_1/g, Empresa_1Value)
 
             // Cria um blob com o conteúdo modificado
             const blob = new Blob([htmlComSubstituicoes], {

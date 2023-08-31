@@ -5,8 +5,9 @@
 
     <link href="gb.png" rel="icon" type="image/png" />
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Substituir Palavras-Chave</title>
-    
+
     <link rel="stylesheet" href="dependencias/style.css">
     <script src="dependencias/gen.js"></script>
     <script src="dependencias/cep.js"></script>
@@ -20,46 +21,63 @@
 
     
     <form method="get" action=".">
-        <label for="NAME_1Input"> <strong>Digite o NOME:</strong></label>
+        <label for="NAME_1Input"> <strong>DIGITAR O NOME:</strong></label>
         <input type="text" id="NAME_1Input" placeholder="Insira o nome completo">
         <br>
 
-        <label for="cpInput">DIGITAR CPF:</label>
-        <input type="text" id="cpInput" placeholder="000.000.000-00">
+        <label for="cpInput">DIGITAR O CPF:</label>
+        <input type="text" id="cpInput" placeholder="CPF - 000.000.000-00">
         <br>
 
-        <label for="CE_1Input">Digite o CEP:</label>
-        <input type="text" id="CE_1Input" name="cep" id="cep" value="" id="CE_1Input" onblur="pesquisacep(this.value);">
+        <label for="CE_1Input">DIGITAR O CEP:</label>
+        <input type="text" id="CE_1Input" name="cep" id="cep" value="" id="CE_1Input" placeholder="CEP - 00000-00" onblur="pesquisacep(this.value);">
         <br>
     <!------------------------------------------------------------------------>
-        
-        <label>Rua:
+        <label>RUA:
         <input name="rua" type="text" id="rua" id="enderecoInput"/></label><br />
         
-        <label>Bairro:
+        <label>BAIRRO:
         <input name="bairro" type="text" id="bairro"/></label><br />
         
-        <label>Cidade:
+        <label>CIDADE:
         <input name="cidade" type="text" id="cidade"/></label><br />
         
-        <label>Estado:
+        <label>ESTADO:
         <input name="uf" type="text" id="uf" /></label><br />
        
         <label>IBGE:
         <input name="ibge" type="text" id="ibge"/></label><br />
-
     <!------------------------------------------------------------------------>
-
-        <label for="LIST_1Input">Painéis (quantidade e tipo):</label>
-        <input type="text" id="LIST_1Input">
+        <label for="LIST_1Input">PAINÉIS SOLARES:</label>
+        <input type="text" id="LIST_1Input" placeholder="QUANTIDADE, TIPO, POTÊNCIA, DESCRIÇÃO">
         <br>
 
-        <label for="LIST_2Input">Inversor (quantidade e tipo):</label>
-        <input type="text" id="LIST_2Input">
+        <label for="LIST_2Input">INVERSOR OU MICRO INVERSOR:</label>
+        <input type="text" id="LIST_2Input" placeholder="QUANTIDADE, TIPO, POTÊNCIA, DESCRIÇÃO">
+        <br>
+        
+        <label for="potencia">POTENCIA DO SISTEMA:</label>
+        <input type="text" id="potencia" placeholder="OBS: 5.5 ">
         <br>
 
-        <label for="METRO_1Input">CABO SOLAR (METRO):</label>
-        <input type="text" id="METRO_1Input">
+        <label for="METRO_1Input">CABO SOLAR:</label>
+        <input type="text" id="METRO_1Input" placeholder="OBS: 50">
+        <br>
+        
+        <label for="valor">VALOR DO SERVIÇO (monetário e por extenso):</label>
+        <input type="text" id="valor" placeholder="VALOR SEM R$, 2.000 (dois mil)">
+        <br>
+
+        <label for="pagamento" >FORMA DE PAGAMENTO:</label>
+        <input type="text" id="pagamento" placeholder="DESCRIÇÃO DO PROCESSO DE PAGAMENTO">
+        <br>
+
+        <label for="cnpj">CNPJ:</label>
+        <input type="text" id="cnpj" placeholder="CNPJ - 00.000.000/0000-00">
+        <br>
+
+        <label for="empresa">NOME DA EMPRESA:</label>
+        <input type="text" id="empresa" placeholder="NOME DA INTERMEDIAÇÃO">
         <br>
 
         <div id="guiContainer"></div>
