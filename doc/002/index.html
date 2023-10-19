@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Conversor PNG para JPG</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <input type="file" id="fileInput" accept="image/png" onchange="convertToJpg()">
+    <div id="output">
+        <a id="downloadLink" download="converted.jpg" href="#">Clique aqui para baixar a imagem convertida</a>
+        <img id="convertedImg">
+    </div>
+
+    <script>
+        function convertToJpg() {
+            const fileInput = document.getElementById('fileInput');
+            const output = document.getElementById('output');
+            const convertedImg = document.getElementById('convertedImg');
+            const downloadLink = document.getElementById('downloadLink');
+
+            if (fileInput.files.length > 0) {
+                const file = fileInput.files[0];
+                if (file.type === 'image/png') {
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        const imgDataUrl = event.target.result;
+                        const img = new Image();
+                        img.src = imgDataUrl;
+                        img.onload = function() {
+                            const canvas = document.createElement('canvas');
+                            canvas.width = img.width;
+                            canvas.height = img.height;
+                            const ctx = canvas.getContext('2d');
+                            ctx.drawImage(img, 0, 0);
+
+                            // Converter a imagem para JPG
+                            const jpgDataUrl = canvas.toDataURL('image/jpeg');
+
+                            // Exibir a imagem convertida
+                            convertedImg.src = jpgDataUrl;
+
+                            // Ativar o link de download
+                            downloadLink.href = jpgDataUrl;
+                            output.style.display = 'block';
+                        };
+                    };
+                    reader.readAsDataURL(file);
+                } else {
+                    alert('Por favor, selecione um arquivo PNG.');
+                }
+            }
+        }
+    </script>
+</body>
+</html>

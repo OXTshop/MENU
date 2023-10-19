@@ -1,0 +1,55 @@
+/* Estilo para o corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 50px;
+    background-color: rgb(189, 216, 247);
+}
+
+#convertedImg {
+    width: 225px;
+    height: auto;
+}
+
+/* Estilo para a área visível do botão de seleção de arquivo */
+label {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    cursor: pointer;
+    width: 10px;
+    height: 100px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+label:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para a área de saída da imagem convertida */
+#output {
+    margin-top: 20px;
+}
+
+/* Estilo para o link de download */
+#downloadLink {
+    display: block;
+    margin-top: 10px;
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#downloadLink:hover {
+    color: #0056b3;
+}
+
+/* Estilo para a imagem convertida */
+#convertedImg {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+}
